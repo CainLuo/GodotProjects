@@ -9,7 +9,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("left"):
-		position.x -= speed * delta
-	elif Input.is_action_pressed("right"):
-		position.x += speed * delta
+	# 第一种写法：
+	#if Input.is_action_pressed("left"):
+		#position.x -= speed * delta
+	#elif Input.is_action_pressed("right"):
+		#position.x += speed * delta
+	
+	# 第二种写法：
+	#var inputAmount: float = Input.get_axis("left", "right")
+	#print("Input amout: ", inputAmount)
+	position.x += delta * speed * Input.get_axis("left", "right")
