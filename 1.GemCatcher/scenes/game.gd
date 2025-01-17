@@ -15,6 +15,8 @@ var _score: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	label.z_index = 1
+	gameOverLabel.z_index = 1
 	gameOverLabel.visible = false
 	_spawn_gem()
 
