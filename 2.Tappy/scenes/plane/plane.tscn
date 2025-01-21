@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwcsoyfsd5xxf"]
+
+[ext_resource type="SpriteFrames" uid="uid://cyd06x4y2apls" path="res://assets/plane_frames.tres" id="1_5e6r0"]
+[ext_resource type="Script" path="res://scenes/plane/plane.gd" id="1_8xo3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4loe2"]
+radius = 23.0
+
+[node name="Plane" type="CharacterBody2D"]
+script = ExtResource("1_8xo3q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = ExtResource("1_5e6r0")
+animation = &"fly"
+autoplay = "fly"
+frame = 1
+frame_progress = 0.783829
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4loe2")
