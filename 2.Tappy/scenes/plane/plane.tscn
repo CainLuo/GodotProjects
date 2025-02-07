@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwcsoyfsd5xxf"]
+[gd_scene load_steps=8 format=3 uid="uid://cwcsoyfsd5xxf"]
 
 [ext_resource type="SpriteFrames" uid="uid://cyd06x4y2apls" path="res://assets/plane_frames.tres" id="1_5e6r0"]
 [ext_resource type="Script" path="res://scenes/plane/plane.gd" id="1_8xo3q"]
+[ext_resource type="AudioStream" uid="uid://br6gwlggar2tm" path="res://assets/audio/engine.mp3" id="3_gbwpw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4loe2"]
 radius = 23.0
@@ -45,6 +46,7 @@ _data = {
 }
 
 [node name="Plane" type="CharacterBody2D" groups=["Plane"]]
+collision_layer = 8
 script = ExtResource("1_8xo3q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -62,3 +64,7 @@ shape = SubResource("CircleShape2D_4loe2")
 libraries = {
 "": SubResource("AnimationLibrary_psbh4")
 }
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gbwpw")
+autoplay = true
