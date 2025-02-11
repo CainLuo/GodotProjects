@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 
 func check_off_screen() -> void:
 	if von.global_position.x < get_viewport_rect().position.x:
-		print("Pipes off at %s" % position)
 		queue_free()
 
 func on_plane_died() -> void:
