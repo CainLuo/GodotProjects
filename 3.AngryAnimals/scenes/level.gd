@@ -8,9 +8,6 @@ func _ready() -> void:
 	SignalManager.on_animal_die.connect(add_animal)
 	add_animal()
 
-func _process(delta: float) -> void:
-	pass
-
 func add_animal() -> void:
 	var animal = ANIMAL.instantiate()
 	animal.position = animal_start.position

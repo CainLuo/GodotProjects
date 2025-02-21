@@ -11,6 +11,7 @@ const IMOLUSE_MAX: float = 1200.0
 @onready var arrow: Sprite2D = $Arrow
 @onready var stretch_sound: AudioStreamPlayer2D = $StretchSound
 @onready var launch_sound: AudioStreamPlayer2D = $LaunchSound
+@onready var kick_sound: AudioStreamPlayer2D = $KickSound
 
 var _state: ANIMA_STATE = ANIMA_STATE.READY
 
@@ -19,6 +20,7 @@ var _drag_start: Vector2 = Vector2.ZERO
 var _dragged_vector: Vector2 = Vector2.ZERO
 var _last_dragged_vector: Vector2 = Vector2.ZERO
 var _arrow_scale_x: float = 0.0
+var _last_collision_count: int = 0
 
 func _ready() -> void:
 	_arrow_scale_x = arrow.scale.x
@@ -45,6 +47,7 @@ func set_release_state() -> void:
 	freeze = false
 	apply_central_impulse(get_impulse())
 	launch_sound.play()
+	SignalManager.on_attempt_made.emit()
 
 func set_new_state(new_state: ANIMA_STATE) -> void:
 	_state = new_state
@@ -92,6 +95,16 @@ func drag_in_limits() -> void:
 	)
 	position = _start + _dragged_vector
 
+func play_collision() -> void:
+	if ( _last_collision_count == 0 and 
+		get_contact_count() > 0 and
+		!kick_sound.playing):
+		kick_sound.play()
+	_last_collision_count = get_contact_count()
+
+func update_flight() -> void:
+	play_collision()
+
 func update_drag() -> void:
 	if detect_release():
 		return
@@ -106,6 +119,8 @@ func update(delta: float) -> void:
 	match _state:
 		ANIMA_STATE.DRAG:
 			update_drag()
+		ANIMA_STATE.RELEASE:
+			update_flight()
 
 func die() -> void:
 	SignalManager.on_animal_die.emit()
@@ -117,3 +132,14 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if _state == ANIMA_STATE.READY and event.is_action_pressed("drag"):
 		set_new_state(ANIMA_STATE.DRAG)
+
+func _on_sleeping_state_changed() -> void:
+	if sleeping:
+		var cb = get_colliding_bodies()
+		if cb.size() > 0:
+			cb[0].die()
+		call_deferred("die")
+
+#func _on_body_entered(body: Node) -> void:
+	#if !kick_sound.playing:
+		#kick_sound.play()
