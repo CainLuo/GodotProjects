@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cav2wsld20t8"]
+
+[ext_resource type="Script" path="res://tests/resource_test.gd" id="1_gaaob"]
+[ext_resource type="Resource" uid="uid://76qikfc61xbd" path="res://resources/axe.tres" id="2_8ue7v"]
+
+[node name="ResourceTest" type="Node2D"]
+script = ExtResource("1_gaaob")
+weapon = ExtResource("2_8ue7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(521, 383)

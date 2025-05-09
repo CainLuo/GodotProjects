@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://c8vqc5gjphp5b"]
+
+[ext_resource type="Script" path="res://resources/weapon.gd" id="1_lphdp"]
+[ext_resource type="Texture2D" uid="uid://c1458o8asttsq" path="res://assets/glitch/keyBlue.png" id="2_l1o3m"]
+
+[resource]
+script = ExtResource("1_lphdp")
+damage = 6
+weapon_name = "knife"
+texture = ExtResource("2_l1o3m")
+file_names = Array[String]([])
