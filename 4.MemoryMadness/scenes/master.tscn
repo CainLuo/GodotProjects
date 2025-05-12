@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://wk0d3qh3rwfe"]
+[gd_scene load_steps=3 format=3 uid="uid://wk0d3qh3rwfe"]
+
+[ext_resource type="Texture2D" uid="uid://dj2djeagdsqfu" path="res://assets/images/backgroundEmpty.png" id="1_fivli"]
+[ext_resource type="Script" path="res://scenes/master.gd" id="1_plkp4"]
 
 [node name="Master" type="CanvasLayer"]
+script = ExtResource("1_plkp4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fivli")
+expand_mode = 1
