@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://wk0d3qh3rwfe"]
+[gd_scene load_steps=5 format=3 uid="uid://wk0d3qh3rwfe"]
 
 [ext_resource type="Texture2D" uid="uid://dj2djeagdsqfu" path="res://assets/images/backgroundEmpty.png" id="1_fivli"]
 [ext_resource type="Script" path="res://scenes/master.gd" id="1_plkp4"]
+[ext_resource type="PackedScene" uid="uid://bypmafcqxek88" path="res://scenes/main.tscn" id="3_ep76u"]
+[ext_resource type="PackedScene" uid="uid://df0sahdx2rcou" path="res://scenes/game.tscn" id="4_m4hpo"]
 
 [node name="Master" type="CanvasLayer"]
 script = ExtResource("1_plkp4")
@@ -14,3 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fivli")
 expand_mode = 1
+
+[node name="Main" parent="." instance=ExtResource("3_ep76u")]
+
+[node name="Game" parent="." instance=ExtResource("4_m4hpo")]
