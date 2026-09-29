@@ -40,6 +40,10 @@ func _process(delta: float) -> void:
 	if fsm.curr_state:
 		fsm.curr_state.progress_state(delta)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		add_exp(10)
+
 func is_moving() -> bool:
 	var move_input = ["move_down", "move_up", "move_left", "move_right"]
 	
@@ -85,7 +89,7 @@ func reset_health() -> void:
 
 func reset_mana() -> void:
 	curr_mana = max_mana
-	EventBus.on_player_mana_updated.emit(max_mana)
+	EventBus.on_player_mana_updated.emit(max_mana, max_mana)
 
 func use_mana(value: float) -> void:
 	curr_mana -= value

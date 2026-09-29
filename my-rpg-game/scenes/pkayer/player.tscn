@@ -251,6 +251,8 @@ size = Vector2(6, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1790639678]
 script = ExtResource("1_hu812")
+max_health = 20.0
+max_mana = 30.0
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1080684053]
 self_modulate = Color(1, 1, 1, 0.19607843)
