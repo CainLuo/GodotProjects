@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://rajv2r1fm2mj"]
+
+[ext_resource type="Script" uid="uid://cfch1er2aqgw2" path="res://scenes/ui/equipment_panel/equipment_slot.gd" id="1_cuxh7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmgee"]
+bg_color = Color(0.21960784, 0.23137255, 0.2901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5921569, 0.5921569, 0.5921569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my0xt"]
+bg_color = Color(0.2571893, 0.26985517, 0.33685076, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5921569, 0.5921569, 0.5921569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwvjp"]
+bg_color = Color(0.3133656, 0.32860222, 0.40436134, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5921569, 0.5921569, 0.5921569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="EquipmentSlot" type="Button" unique_id=1814395433]
+custom_minimum_size = Vector2(40, 40)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmgee")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_my0xt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fwvjp")
+script = ExtResource("1_cuxh7")

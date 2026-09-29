@@ -23,7 +23,6 @@ EventBus="*uid://8kpmuiync3bl"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]
