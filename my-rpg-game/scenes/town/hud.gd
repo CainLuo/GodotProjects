@@ -20,16 +20,16 @@ func _ready() -> void:
 	EventBus.on_player_new_level.connect(_on_player_new_level)
 
 func _on_equipment_button_pressed() -> void:
-	equipment_panel.visible = !equipment_panel.visible
+	equipment_panel.visible = not equipment_panel.visible
 
 func _on_inventory_button_pressed() -> void:
-	inventory_panel.visible = !inventory_panel.visible
+	inventory_panel.visible = not inventory_panel.visible
 
 func _on_stats_button_pressed() -> void:
-	stats_panel.visible = !stats_panel.visible
+	stats_panel.visible = not stats_panel.visible
 
 func _on_skills_button_pressed() -> void:
-	skills_panel.visible = !skills_panel.visible
+	skills_panel.visible = not skills_panel.visible
 
 func _on_player_health_updated(curr: float, max: float) -> void:
 	health_bar.value = curr / max
