@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipData" format=3 uid="uid://d45yxabno8ga"]
+
+[ext_resource type="Texture2D" uid="uid://bxbwrilmmllpo" path="res://Sprites/Equipment/placeholder_weapon.png" id="1_jlp67"]
+[ext_resource type="Script" uid="uid://nkrd2svfysgg" path="res://data/equipment/equip_data.gd" id="2_ui1gm"]
+
+[resource]
+script = ExtResource("2_ui1gm")
+equip_type = 3
+type = 4
+max_stack = 1
+icon = ExtResource("1_jlp67")
+id = "equip_weapon"
+name = "Common Weapon"
+price = 20
+metadata/_custom_type_script = "uid://nkrd2svfysgg"

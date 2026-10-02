@@ -42,7 +42,9 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		add_exp(10)
+		#add_exp(10)
+		#health_component.take_damage(1.0)
+		use_mana(2)
 
 func is_moving() -> bool:
 	var move_input = ["move_down", "move_up", "move_left", "move_right"]
@@ -96,5 +98,16 @@ func use_mana(value: float) -> void:
 	curr_mana = max(curr_mana, 0)
 	EventBus.on_player_mana_updated.emit(curr_mana, max_mana)
 
+func add_mana(value: float) -> void:
+	curr_mana += value
+	curr_mana = min(curr_mana, max_mana)
+	EventBus.on_player_mana_updated.emit(curr_mana, max_mana)
+
 func enable_weapon_collistion(value: bool) -> void:
 	enemy_area.monitoring = value
+
+func _on_health_component_on_dead() -> void:
+	queue_free()
+
+func _on_health_component_on_health_changed(curr_health: float) -> void:
+	EventBus.on_player_health_updated.emit(curr_health, max_health)

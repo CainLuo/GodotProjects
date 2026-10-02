@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxiso66tj6ccv" path="res://Sprites/Backgrounds/Tilesets/TilesetElement.png" id="3_e21v4"]
 [ext_resource type="Texture2D" uid="uid://2q4pyi30hu3q" path="res://Sprites/Backgrounds/Tilesets/TilesetNature.png" id="4_6g2qn"]
 [ext_resource type="Texture2D" uid="uid://4pycywr6jrmo" path="res://Sprites/Backgrounds/Tilesets/TilesetHouse.png" id="4_06row"]
-[ext_resource type="PackedScene" uid="uid://df34ohfqdymql" path="res://scenes/pkayer/player.tscn" id="4_8b7wv"]
+[ext_resource type="PackedScene" uid="uid://df34ohfqdymql" path="res://scenes/player/player.tscn" id="4_8b7wv"]
 [ext_resource type="Texture2D" uid="uid://vdni4gvweh4f" path="res://Sprites/Backgrounds/Tilesets/TilesetFloorDetail.png" id="5_5vpkg"]
 [ext_resource type="Texture2D" uid="uid://chl3tal0v806j" path="res://Sprites/Items/Tool/Axe.png" id="9_jil70"]
 [ext_resource type="Script" uid="uid://e4bogxm50ovs" path="res://scenes/town/hud.gd" id="9_svnup"]
@@ -20,7 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://cy7vb3xi37ffv" path="res://scenes/ui/stats_panel/stats_panel.tscn" id="16_dmgee"]
 [ext_resource type="PackedScene" uid="uid://begkmt6oqa7j4" path="res://scenes/ui/skill_panel/skills_panel.tscn" id="17_my0xt"]
 [ext_resource type="PackedScene" uid="uid://cy3sbp6t3sybr" path="res://scenes/drop_item/drop_item.tscn" id="20_3sg37"]
+[ext_resource type="PackedScene" uid="uid://mbtv71ahoxqa" path="res://scenes/ui/invantory_panel/inventory_slot.tscn" id="20_fwdo8"]
 [ext_resource type="Resource" uid="uid://cdjytsy5y246l" path="res://data/potions/item_hp_small_2.tres" id="21_vky2r"]
+[ext_resource type="Resource" uid="uid://fxm1jpn24vte" path="res://data/potions/item_mana_small_5.tres" id="23_wacgc"]
+[ext_resource type="Resource" uid="uid://npl5p1kilsg8" path="res://data/equipment/item_equip_helmet_common.tres" id="24_s1uhr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxugk"]
 texture = ExtResource("1_n11nm")
@@ -4057,10 +4060,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="InventoryPanel" parent="HUD/Panels" unique_id=1400270495 instance=ExtResource("14_yr8sw")]
+[node name="InventoryPanel" parent="HUD/Panels" unique_id=1400270495 node_paths=PackedStringArray("grabbed_slot") instance=ExtResource("14_yr8sw")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+grabbed_slot = NodePath("../../GrabbedSlot")
 
 [node name="StatsPanel" parent="HUD/Panels" unique_id=1825705775 instance=ExtResource("16_dmgee")]
 unique_name_in_owner = true
@@ -4072,10 +4076,28 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="GrabbedSlot" parent="HUD" unique_id=1885132755 instance=ExtResource("20_fwdo8")]
+visible = false
+offset_left = 1097.0
+offset_top = 368.0
+offset_right = 1132.0
+offset_bottom = 403.0
+mouse_filter = 2
+flat = true
+
 [node name="DropItem" parent="." unique_id=699341583 instance=ExtResource("20_3sg37")]
 position = Vector2(74, -25)
 item = ExtResource("21_vky2r")
 amount = 101
+
+[node name="DropItem2" parent="." unique_id=1245694565 instance=ExtResource("20_3sg37")]
+position = Vector2(103, -47)
+item = ExtResource("23_wacgc")
+amount = 101
+
+[node name="DropItem3" parent="." unique_id=347263834 instance=ExtResource("20_3sg37")]
+position = Vector2(133, -79)
+item = ExtResource("24_s1uhr")
 
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/InventoryButton" to="HUD" method="_on_inventory_button_pressed"]

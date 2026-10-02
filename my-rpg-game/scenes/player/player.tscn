@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://df34ohfqdymql"]
 
 [ext_resource type="Texture2D" uid="uid://l58lkiu042xv" path="res://Sprites/Actor/Characters/Shadow.png" id="1_e8nnk"]
-[ext_resource type="Script" uid="uid://cwy567ko500yw" path="res://scenes/pkayer/player.gd" id="1_hu812"]
+[ext_resource type="Script" uid="uid://cwy567ko500yw" path="res://scenes/player/player.gd" id="1_hu812"]
 [ext_resource type="Texture2D" uid="uid://cc0q6egjxfobw" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Idle.png" id="2_rynhy"]
 [ext_resource type="Texture2D" uid="uid://bacld8ysircpa" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Walk.png" id="3_hu812"]
 [ext_resource type="Texture2D" uid="uid://cif5jmjk1clyv" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Attack.png" id="3_r0f4o"]
 [ext_resource type="Script" uid="uid://b6dyt2hiaq7bk" path="res://scripts/fsm.gd" id="5_1noyu"]
 [ext_resource type="PackedScene" uid="uid://3bp8j1y1onu" path="res://scenes/health_component/health_component.tscn" id="5_ub1uf"]
-[ext_resource type="Script" uid="uid://cry5223q05aa8" path="res://scenes/pkayer/states/player_state_idle.gd" id="6_13vyb"]
-[ext_resource type="Script" uid="uid://bwygou5x87juq" path="res://scenes/pkayer/states/player_state_walk.gd" id="7_13vyb"]
-[ext_resource type="Script" uid="uid://bpv6qqvjcekax" path="res://scenes/pkayer/states/player_state_attack.gd" id="8_13vyb"]
+[ext_resource type="Script" uid="uid://cry5223q05aa8" path="res://scenes/player/states/player_state_idle.gd" id="6_13vyb"]
+[ext_resource type="Script" uid="uid://bwygou5x87juq" path="res://scenes/player/states/player_state_walk.gd" id="7_13vyb"]
+[ext_resource type="Script" uid="uid://bpv6qqvjcekax" path="res://scenes/player/states/player_state_attack.gd" id="8_13vyb"]
 [ext_resource type="Texture2D" uid="uid://3p8iooj1mo5j" path="res://Sprites/Items/Weapons/Lance/Sprite.png" id="11_fuqrw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgmux"]
@@ -323,3 +323,6 @@ script = ExtResource("7_13vyb")
 
 [node name="Attack" type="Node" parent="FSM" unique_id=156564522]
 script = ExtResource("8_13vyb")
+
+[connection signal="on_dead" from="HealthComponent" to="." method="_on_health_component_on_dead"]
+[connection signal="on_health_changed" from="HealthComponent" to="." method="_on_health_component_on_health_changed"]

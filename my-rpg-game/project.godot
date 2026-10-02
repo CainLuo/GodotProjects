@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://8kpmuiync3bl"
 Inventory="*uid://8n208h23ua73"
+Refs="*uid://cecqx0526bbfn"
+GameData="*uid://outbrol1wbfx"
 
 [display]
 

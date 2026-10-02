@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rajv2r1fm2mj"]
 
 [ext_resource type="Script" uid="uid://cfch1er2aqgw2" path="res://scenes/ui/equipment_panel/equipment_slot.gd" id="1_cuxh7"]
+[ext_resource type="Texture2D" uid="uid://bf3kx0rce6k0x" path="res://Sprites/Equipment/placeholder_helmet.png" id="2_kkf08"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmgee"]
 bg_color = Color(0.21960784, 0.23137255, 0.2901961, 1)
@@ -44,3 +45,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dmgee")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_my0xt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fwvjp")
 script = ExtResource("1_cuxh7")
+
+[node name="ItemIcon" type="TextureRect" parent="." unique_id=2088397980]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_kkf08")
