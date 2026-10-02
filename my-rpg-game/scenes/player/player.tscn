@@ -250,7 +250,6 @@ radius = 7.0
 size = Vector2(6, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=1790639678]
-visible = false
 collision_layer = 2
 script = ExtResource("1_hu812")
 max_health = 20.0
