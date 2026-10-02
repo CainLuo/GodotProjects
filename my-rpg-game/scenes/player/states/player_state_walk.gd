@@ -19,5 +19,5 @@ func progress_state(delta: float) -> void:
 	player.update_direction(input_vector)
 	player.play_direction_anim("walk")
 	
-	player.velocity = input_vector * player.mova_speed
+	player.velocity = input_vector * player.move_speed
 	player.move_and_slide()
