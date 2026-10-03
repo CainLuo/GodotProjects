@@ -40,15 +40,17 @@ var strength_value: int = 0
 var dexterity_value: int = 0
 var intelligence_value: int = 0
 
+var selected_enemy: Enemy:
+	set(value):
+		if selected_enemy:
+			selected_enemy.deselect_enemy()
+		
+		selected_enemy = value
+		selected_enemy.select_enemy()
+
 func _process(delta: float) -> void:
 	if fsm.curr_state:
-		fsm.curr_state.progress_state(delta)
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		add_exp(500000000)
-		#health_component.take_damage(2.0)
-		#use_mana(2)
+		fsm.curr_state.process_state(delta)
 
 func is_moving() -> bool:
 	var move_input = ["move_down", "move_up", "move_left", "move_right"]
@@ -119,6 +121,7 @@ func level_up() -> void:
 	curr_level += 1
 	curr_points += 4
 	next_level_exp *= exp_multiplier
+	Refs.create_new_level_fx(global_position)
 	EventBus.on_player_stats_updated.emit()
 
 func setup() ->void:
@@ -152,3 +155,9 @@ func _on_health_component_on_dead() -> void:
 
 func _on_health_component_on_health_changed(curr_health: float) -> void:
 	EventBus.on_player_health_updated.emit(curr_health, max_health)
+
+func _on_enemy_attack_area_area_entered(area: Area2D) -> void:
+	var dmg = get_damage()
+	area.health_component.take_damage(dmg)
+	Refs.create_damage_fx(area.global_position)
+	Refs.create_damage_text(area.global_position, dmg)
