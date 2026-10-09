@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://l58lkiu042xv" path="res://Sprites/Actor/Characters/Shadow.png" id="2_40wdo"]
 [ext_resource type="Texture2D" uid="uid://dmwuj01b4ll4n" path="res://Sprites/Actor/Monsters/Mouse/SpriteSheet.png" id="2_a3pup"]
 [ext_resource type="Script" uid="uid://ckm7ene0rikvd" path="res://data/loot_data.gd" id="2_hvxgb"]
-[ext_resource type="Resource" uid="uid://cdjytsy5y246l" path="res://data/potions/item_hp_small_2.tres" id="3_2f3il"]
-[ext_resource type="Resource" uid="uid://d30mu8kats200" path="res://data/food/item_food_beaf.tres" id="4_dtxhd"]
+[ext_resource type="Resource" uid="uid://fxm1jpn24vte" path="res://data/potions/item_mana_small_5.tres" id="3_mjsnp"]
+[ext_resource type="Resource" uid="uid://bwkbvinqc43d4" path="res://data/food/item_food_nut.tres" id="4_81rvn"]
 [ext_resource type="Texture2D" uid="uid://b25swkh2ytg3p" path="res://Sprites/Selector.png" id="4_tjssy"]
 [ext_resource type="PackedScene" uid="uid://3bp8j1y1onu" path="res://scenes/health_component/health_component.tscn" id="5_gl05p"]
 [ext_resource type="Script" uid="uid://b6dyt2hiaq7bk" path="res://scripts/fsm.gd" id="6_cwlon"]
@@ -13,16 +13,16 @@
 [ext_resource type="Script" uid="uid://boxwwkfyiesw5" path="res://scenes/enemy/states/enemy_follow_state.gd" id="8_13gj6"]
 [ext_resource type="Script" uid="uid://2dtubscyxb7g" path="res://scenes/enemy/enemy_attack_state.gd" id="9_4efjx"]
 
-[sub_resource type="Resource" id="Resource_4efjx"]
+[sub_resource type="Resource" id="Resource_mjsnp"]
 script = ExtResource("2_hvxgb")
-item = ExtResource("3_2f3il")
-amount = 5
+item = ExtResource("3_mjsnp")
+amount = 2
 metadata/_custom_type_script = "uid://ckm7ene0rikvd"
 
-[sub_resource type="Resource" id="Resource_hvxgb"]
+[sub_resource type="Resource" id="Resource_81rvn"]
 script = ExtResource("2_hvxgb")
-item = ExtResource("4_dtxhd")
-amount = 10
+item = ExtResource("4_81rvn")
+amount = 1
 metadata/_custom_type_script = "uid://ckm7ene0rikvd"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
@@ -185,10 +185,10 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="Enemy" type="Area2D" unique_id=170499626]
+[node name="EnemyMouse" type="Area2D" unique_id=170499626]
 collision_layer = 4
 script = ExtResource("1_4a83h")
-loot = Array[ExtResource("2_hvxgb")]([SubResource("Resource_4efjx"), SubResource("Resource_hvxgb")])
+loot = Array[ExtResource("2_hvxgb")]([SubResource("Resource_mjsnp"), SubResource("Resource_81rvn")])
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1993804134]
 self_modulate = Color(1, 1, 1, 0.19607843)
@@ -200,8 +200,6 @@ position = Vector2(1, -8)
 sprite_frames = SubResource("SpriteFrames_4a83h")
 animation = &"move_down"
 autoplay = "move_down"
-frame = 3
-frame_progress = 0.21269903
 
 [node name="Selector" type="Sprite2D" parent="." unique_id=178540618]
 visible = false

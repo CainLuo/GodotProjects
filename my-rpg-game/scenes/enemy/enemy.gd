@@ -46,9 +46,14 @@ func drop_loot() -> void:
 	var random_data: LootData = loot.pick_random()
 	var drop_item: DropItem = Refs.DROP_ITEM_SCENE.instantiate()
 	
-	var away_dir = global_position - Refs.player.global_position.normalized()
+	var away_dir: Vector2 = (global_position - Refs.player.global_position).normalized()
+	var drop_pos: Vector2 = global_position + away_dir * 15
 	
+	drop_item.load_item(random_data)
+	drop_item.global_position = drop_pos
+	get_tree().root.call_deferred("add_child", drop_item)
 	
+	on_enemy_died.emit()
 
 func select_enemy() -> void:
 	selector.show()
@@ -66,4 +71,6 @@ func _on_health_component_on_health_changed(curr_health: float) -> void:
 	health_bar.value = curr_health  / max_health
 
 func _on_health_component_on_dead() -> void:
+	drop_loot()
+	Refs.player.add_exp(exp_amount)
 	queue_free()
