@@ -8,6 +8,8 @@ signal on_enemy_died
 @export var damage: float = 2.0
 @export var exp_amount: float = 20.0
 
+@export var loot: Array[LootData]
+
 @onready var selector: Sprite2D = $Selector
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
@@ -39,6 +41,14 @@ func update_animation(dir: Vector2) -> void:
 			anim_sprite.play("move_down")
 		else:
 			anim_sprite.play("move_up")
+
+func drop_loot() -> void:
+	var random_data: LootData = loot.pick_random()
+	var drop_item: DropItem = Refs.DROP_ITEM_SCENE.instantiate()
+	
+	var away_dir = global_position - Refs.player.global_position.normalized()
+	
+	
 
 func select_enemy() -> void:
 	selector.show()
