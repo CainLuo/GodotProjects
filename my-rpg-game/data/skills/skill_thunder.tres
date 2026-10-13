@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://cfytt0p0solup"]
+
+[ext_resource type="Texture2D" uid="uid://qih0hma7my5e" path="res://Sprites/Ui/Skill Icon/Spell/WaterCanon.png" id="1_efird"]
+[ext_resource type="Script" uid="uid://cwldjfppori1i" path="res://data/skills/skill_data.gd" id="2_hcwjg"]
+
+[resource]
+script = ExtResource("2_hcwjg")
+mana_cost = 3.0
+base_dmg = 2.4
+icon = ExtResource("1_efird")
+id = "water_canon"
+name = "Water Canon"
+description = "Create a water canon"
+price = 50
+metadata/_custom_type_script = "uid://cwldjfppori1i"

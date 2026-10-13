@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://okjtn8emxx7f" path="res://scenes/ui/skill_panel/skill_button.tscn" id="1_gdjvl"]
 [ext_resource type="Script" uid="uid://bkm33wdgx4yp7" path="res://scenes/ui/skill_panel/skills_panel.gd" id="1_iv5ke"]
+[ext_resource type="Resource" uid="uid://cfga7wns6vhya" path="res://data/skills/skill_shuriken.tres" id="3_0osin"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w25xm"]
 bg_color = Color(0.14901961, 0.16470589, 0.20784314, 1)
@@ -51,6 +52,8 @@ alignment = 1
 
 [node name="SkillButton" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer" unique_id=530527340 instance=ExtResource("1_gdjvl")]
 layout_mode = 2
+is_free = true
+skill_data = ExtResource("3_0osin")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=730881291]
 layout_mode = 2
