@@ -154,7 +154,7 @@ texture = ExtResource("1_pjmd8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GlodLabel" type="Label" parent="MarginContainer/VBox/HBox" unique_id=245273981]
+[node name="GoldLabel" type="Label" parent="MarginContainer/VBox/HBox" unique_id=245273981]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3000"

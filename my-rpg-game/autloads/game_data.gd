@@ -9,3 +9,5 @@ var equipement: Dictionary[String, EquipData] = {
 }
 
 var skill_slots: Array[SkillData] = [null, null, null, null]
+
+var coins: float = 500.0

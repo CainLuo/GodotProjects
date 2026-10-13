@@ -5,7 +5,7 @@ class_name InventoryPanel
 @export var grabbed_slot: InventorySlot
 
 @onready var container: GridContainer = %Container
-@onready var glod_label: Label = %GlodLabel
+@onready var gold_label: Label = %GoldLabel
 
 var slots: Array[InventorySlot]
 var selected_slot_index: int = -1
@@ -20,6 +20,7 @@ func _ready() -> void:
 		slots.append(slot)
 
 func _process(delta: float) -> void:
+	gold_label.text = str(GameData.coins)
 	if grabbed_slot.visible:
 		grabbed_slot.global_position = get_global_mouse_position()
 

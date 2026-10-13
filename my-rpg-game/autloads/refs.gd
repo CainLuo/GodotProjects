@@ -1,6 +1,7 @@
 extends Node
 
 var player: Player
+var hud: HUD
 
 const DAMAGE_FX_SCENE = preload("uid://dmr2rg8ge5esa")
 const DAMAGE_TEXT_SCENE = preload("uid://dob17xhqf828e")

@@ -9,6 +9,6 @@ mana_cost = 2.0
 icon = ExtResource("1_jn5gb")
 id = "boost_dmg"
 name = "Boost DMG"
-description = "Increases attack damage"
+description = "Incre"
 price = 50
 metadata/_custom_type_script = "uid://cwldjfppori1i"
