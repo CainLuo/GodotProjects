@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cfga7wns6vhya" path="res://data/skills/skill_shuriken.tres" id="3_0osin"]
 [ext_resource type="Resource" uid="uid://cfytt0p0solup" path="res://data/skills/skill_thunder.tres" id="3_vf0q1"]
 [ext_resource type="Resource" uid="uid://c68v3a23go3o6" path="res://data/skills/skill_kunai.tres" id="4_chs10"]
-[ext_resource type="Resource" uid="uid://cbnwuibo54sks" path="res://data/skills/skill_magic_weapon.tres" id="4_fh2p2"]
+[ext_resource type="Resource" uid="uid://cbnwuibo54sks" path="res://data/skills/skill_boost_dmg.tres" id="4_fh2p2"]
 [ext_resource type="Resource" uid="uid://eyfmmo47sn5k" path="res://data/skills/skill_water_canon.tres" id="4_pmxhq"]
 [ext_resource type="Resource" uid="uid://cwopkwcr22w38" path="res://data/skills/skill_orb_plant.tres" id="4_rqaud"]
 [ext_resource type="Resource" uid="uid://cala20m5wt3sy" path="res://data/skills/skill_water_splash.tres" id="4_t8avn"]
