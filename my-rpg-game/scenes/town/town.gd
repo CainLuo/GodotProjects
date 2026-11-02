@@ -4,8 +4,11 @@ class_name Town
 
 @export var player_scene: PackedScene
 
+@onready var navigation: TileMapLayer = %Navigation
+
 func _ready() -> void:
 	EventBus.on_inventory_used_item.connect(_on_inventory_used_item)
+	Refs.navigation = navigation
 	create_player()
 
 func create_player() -> void:

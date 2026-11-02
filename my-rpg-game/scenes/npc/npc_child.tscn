@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dwed4o38st0a1"]
+
+[ext_resource type="PackedScene" uid="uid://cjk4x0irxwer0" path="res://scenes/npc/npc_simple.tscn" id="1_pnwhn"]
+[ext_resource type="Texture2D" uid="uid://vrkcorb2xjwl" path="res://Sprites/Actor/Characters/Child/SpriteSheet.png" id="2_x6o5c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja4bh"]
+atlas = ExtResource("2_x6o5c")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7a0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja4bh")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]
+
+[node name="NPCChild" unique_id=1799084524 instance=ExtResource("1_pnwhn")]
+dialogue = null
+
+[node name="AnimSprite" parent="." index="1" unique_id=2128681777]
+sprite_frames = SubResource("SpriteFrames_g7a0x")

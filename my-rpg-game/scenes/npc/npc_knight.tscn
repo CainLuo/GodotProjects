@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dpge8c3tkguj2"]
+
+[ext_resource type="PackedScene" uid="uid://cjk4x0irxwer0" path="res://scenes/npc/npc_simple.tscn" id="1_vo17i"]
+[ext_resource type="Texture2D" uid="uid://bo5s576xhfoqv" path="res://Sprites/Actor/Characters/Knight/SpriteSheet.png" id="2_mnife"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w10th"]
+atlas = ExtResource("2_mnife")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atov0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w10th")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]
+
+[node name="NPCKnight" unique_id=1799084524 instance=ExtResource("1_vo17i")]
+dialogue = null
+
+[node name="AnimSprite" parent="." index="1" unique_id=2128681777]
+sprite_frames = SubResource("SpriteFrames_atov0")

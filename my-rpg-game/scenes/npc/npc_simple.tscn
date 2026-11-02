@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cjk4x0irxwer0"]
+
+[ext_resource type="Script" uid="uid://e6b5of1c5ul5" path="res://scenes/npc/npc_simple.gd" id="1_al0or"]
+[ext_resource type="Texture2D" uid="uid://c68ct1vwlpgnu" path="res://Sprites/Actor/Characters/Caveman/SeparateAnim/Idle.png" id="1_iwp5r"]
+[ext_resource type="Texture2D" uid="uid://l58lkiu042xv" path="res://Sprites/Actor/Characters/Shadow.png" id="1_vtgdc"]
+[ext_resource type="Resource" uid="uid://vw7wsntomjvu" path="res://data/dialogue/testing.tres" id="2_nu3ub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtgdc"]
+atlas = ExtResource("1_iwp5r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iwp5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtgdc")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtgdc"]
+radius = 7.0
+
+[node name="NPCSimple" type="Area2D" unique_id=1799084524]
+script = ExtResource("1_al0or")
+dialogue = ExtResource("2_nu3ub")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=791331763]
+self_modulate = Color(1, 1, 1, 0.19607843)
+scale = Vector2(1.5, 1.2)
+texture = ExtResource("1_vtgdc")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=2128681777]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_iwp5r")
+animation = &"idle_down"
+
+[node name="NavAgent" type="NavigationAgent2D" parent="." unique_id=308821843]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_postprocessing = 1
+debug_enabled = true
+debug_path_custom_color = Color(0.85200655, 0, 0.06661369, 1)
+
+[node name="CollsionShape2D" type="CollisionShape2D" parent="." unique_id=1707760564]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_vtgdc")
+
+[node name="Timer" type="Timer" parent="." unique_id=457931303]
+one_shot = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

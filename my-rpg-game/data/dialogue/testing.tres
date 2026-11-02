@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3 uid="uid://vw7wsntomjvu"]
+
+[ext_resource type="Script" uid="uid://bw3ql6trpivmh" path="res://data/dialogue/dialogue_data.gd" id="1_2atkj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2atkj"]
+load_path = "res://.godot/imported/FacesetWhite.png-1fd63c23985abfc3246e38dc5425bb8b.ctex"
+
+[resource]
+script = ExtResource("1_2atkj")
+npc_name = "Testing"
+npc_icon = SubResource("CompressedTexture2D_2atkj")
+line = Array[String](["Hello", "Bye"])
+metadata/_custom_type_script = "uid://bw3ql6trpivmh"

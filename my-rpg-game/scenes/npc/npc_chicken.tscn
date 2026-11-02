@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d382qekmtd3oe"]
+
+[ext_resource type="PackedScene" uid="uid://cjk4x0irxwer0" path="res://scenes/npc/npc_simple.tscn" id="1_55u8x"]
+[ext_resource type="Texture2D" uid="uid://bjhhoij63xjjx" path="res://Sprites/Actor/Animals/Chicken/SpriteSheetWhite.png" id="2_3r2wm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1bu0"]
+atlas = ExtResource("2_3r2wm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1bu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1bu0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="NPCChicken" unique_id=1799084524 instance=ExtResource("1_55u8x")]
+dialogue = null
+
+[node name="AnimSprite" parent="." index="1" unique_id=2128681777]
+sprite_frames = SubResource("SpriteFrames_o1bu0")
+animation = &"idle"

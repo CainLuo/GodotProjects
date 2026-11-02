@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bc77ekkcoe5r4"]
+
+[ext_resource type="Texture2D" uid="uid://3wamnv2tv8ov" path="res://Sprites/Ui/Dialog/DialogueBoxSimple.png" id="1_0a0fk"]
+[ext_resource type="Script" uid="uid://dor2invlfv42v" path="res://scenes/ui/dialogue_panel/dialogue_panel.gd" id="1_0w3k8"]
+[ext_resource type="Texture2D" uid="uid://g8hvg0d5rhdi" path="res://Sprites/Actor/Characters/Child/Faceset.png" id="2_0w3k8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w08mh"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="DialoguePanel" type="Control" unique_id=158370588]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0w3k8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=520114907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.15686275)
+
+[node name="BoxTexture" type="NinePatchRect" parent="." unique_id=1673834810]
+custom_minimum_size = Vector2(800, 160)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -260.0
+offset_right = 400.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_0a0fk")
+region_rect = Rect2(0, 0, 316, 60)
+patch_margin_left = 131
+patch_margin_top = 17
+patch_margin_right = 130
+patch_margin_bottom = 19
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxTexture" unique_id=571724961]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="DialogueLabel" type="Label" parent="BoxTexture/MarginContainer" unique_id=1246236140]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "Description Label"
+label_settings = SubResource("LabelSettings_w08mh")
+autowrap_mode = 2
+
+[node name="NPCIcon" type="TextureRect" parent="." unique_id=1109786606]
+show_behind_parent = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 276.0
+offset_top = 368.0
+offset_right = 376.0
+offset_bottom = 468.0
+texture = ExtResource("2_0w3k8")
