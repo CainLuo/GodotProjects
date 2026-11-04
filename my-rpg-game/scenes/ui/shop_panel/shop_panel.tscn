@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://d2ogv4juukgd"]
 
 [ext_resource type="PackedScene" uid="uid://cgsxho4qfbin1" path="res://scenes/ui/shop_panel/shop_button.tscn" id="1_chkkr"]
+[ext_resource type="Script" uid="uid://eim5xdgggwkg" path="res://scenes/ui/shop_panel/shop_panel.gd" id="1_uw7t7"]
+[ext_resource type="Script" uid="uid://bc1eymge1rxd4" path="res://data/item_data.gd" id="2_8htdu"]
 [ext_resource type="Texture2D" uid="uid://dbfg8jvijdjdb" path="res://Sprites/Items/Treasure/GoldCoin.png" id="2_vr486"]
+[ext_resource type="Resource" uid="uid://d30mu8kats200" path="res://data/food/item_food_beaf.tres" id="3_d06j1"]
+[ext_resource type="Resource" uid="uid://cdjytsy5y246l" path="res://data/potions/item_hp_small_2.tres" id="4_lk801"]
+[ext_resource type="Resource" uid="uid://npl5p1kilsg8" path="res://data/equipment/item_equip_helmet_common.tres" id="5_8g7ko"]
+[ext_resource type="Resource" uid="uid://bwkbvinqc43d4" path="res://data/food/item_food_nut.tres" id="6_5uj72"]
+[ext_resource type="Resource" uid="uid://caasxp15hrtte" path="res://data/food/item_food_fish.tres" id="7_21wy5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv65m"]
 bg_color = Color(0.14901961, 0.16470589, 0.20784314, 1)
@@ -13,6 +20,18 @@ shadow_color = Color(0.101960786, 0.11372549, 0.14901961, 1)
 shadow_size = 2
 shadow_offset = Vector2(4, 4)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8htdu"]
+bg_color = Color(0.73333335, 0.15686275, 0.14901961, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3529412, 0.050980393, 0.047058824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="ShopPanel" type="Control" unique_id=841640331]
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +39,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uw7t7")
+items = Array[ExtResource("2_8htdu")]([ExtResource("3_d06j1"), ExtResource("4_lk801"), ExtResource("5_8g7ko"), ExtResource("6_5uj72"), ExtResource("7_21wy5")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1409097984]
 layout_mode = 1
@@ -135,3 +156,16 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 text = "20"
+
+[node name="CloseButton" type="Button" parent="." unique_id=827201810]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 867.0
+offset_top = 187.0
+offset_right = 907.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8htdu")
+text = "X"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

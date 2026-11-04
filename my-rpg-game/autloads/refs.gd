@@ -8,6 +8,7 @@ const DAMAGE_FX_SCENE = preload("uid://dmr2rg8ge5esa")
 const DAMAGE_TEXT_SCENE = preload("uid://dob17xhqf828e")
 const NEW_LEVEL_FX_SCENE = preload("uid://bhfqw0dl34law")
 const DROP_ITEM_SCENE = preload("uid://cy3sbp6t3sybr")
+const SHOP_BUTTON_SCENE = preload("uid://cgsxho4qfbin1")
 
 func create_damage_fx(pos: Vector2) -> void:
 	create_fx_at_pos(DAMAGE_FX_SCENE, pos)

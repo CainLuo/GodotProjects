@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgsxho4qfbin1"]
 
 [ext_resource type="Texture2D" uid="uid://tfa5nvtpmise" path="res://Sprites/Items/Food/Shrimp.png" id="1_0ufjs"]
+[ext_resource type="Script" uid="uid://bpkgup6r0xmf" path="res://scenes/ui/shop_panel/shop_button.gd" id="1_pc0aj"]
 [ext_resource type="Texture2D" uid="uid://dbfg8jvijdjdb" path="res://Sprites/Items/Treasure/GoldCoin.png" id="2_up7pt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkkr"]
@@ -44,6 +45,7 @@ custom_minimum_size = Vector2(80, 80)
 theme_override_styles/normal = SubResource("StyleBoxFlat_chkkr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_up7pt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pc0aj")
+script = ExtResource("1_pc0aj")
 
 [node name="ItemIcon" type="TextureRect" parent="." unique_id=1541227649]
 layout_mode = 1
@@ -81,6 +83,9 @@ texture = ExtResource("2_up7pt")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=802914154]
+[node name="Price" type="Label" parent="HBoxContainer" unique_id=802914154]
+unique_name_in_owner = true
 layout_mode = 2
 text = "20"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
